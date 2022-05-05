@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		002367F0281EF7150020AC6D /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002367EF281EF7150020AC6D /* TasksViewController.swift */; };
+		007036DE2821069A0015ED32 /* GoogleService-Info-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 007036DD2821069A0015ED32 /* GoogleService-Info-3.plist */; };
 		007A0774281B0908005F8C05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007A0773281B0908005F8C05 /* AppDelegate.swift */; };
 		007A0776281B0908005F8C05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007A0775281B0908005F8C05 /* SceneDelegate.swift */; };
 		007A0778281B0908005F8C05 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007A0777281B0908005F8C05 /* LoginViewController.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		002367EF281EF7150020AC6D /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		007036DD2821069A0015ED32 /* GoogleService-Info-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-3.plist"; sourceTree = "<group>"; };
 		007A0770281B0908005F8C05 /* ToDoFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		007A0773281B0908005F8C05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		007A0775281B0908005F8C05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +50,7 @@
 				007A077C281B090D005F8C05 /* Assets.xcassets */,
 				007A077E281B090D005F8C05 /* LaunchScreen.storyboard */,
 				007A0781281B090D005F8C05 /* Info.plist */,
+				007036DD2821069A0015ED32 /* GoogleService-Info-3.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -130,6 +133,10 @@
 				Base,
 			);
 			mainGroup = 007A0767281B0908005F8C05;
+			packageReferences = (
+				007036DC282104BB0015ED32 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				007036DF2821084E0015ED32 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 007A0771281B0908005F8C05 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -147,6 +154,7 @@
 				007A0780281B090D005F8C05 /* LaunchScreen.storyboard in Resources */,
 				007A077D281B090D005F8C05 /* Assets.xcassets in Resources */,
 				007A077B281B0908005F8C05 /* Main.storyboard in Resources */,
+				007036DE2821069A0015ED32 /* GoogleService-Info-3.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,7 +316,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ToDoFirebase/Info.plist;
+				INFOPLIST_FILE = "ToDoFirebase/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -336,7 +344,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ToDoFirebase/Info.plist;
+				INFOPLIST_FILE = "ToDoFirebase/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -378,6 +386,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		007036DC282104BB0015ED32 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		007036DF2821084E0015ED32 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 007A0768281B0908005F8C05 /* Project object */;
 }
