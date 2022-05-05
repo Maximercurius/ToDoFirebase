@@ -70,7 +70,6 @@
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BMy-uX-czm"/>
-                                                    <segue destination="B77-xb-eq1" kind="show" identifier="tasksSegue" id="USt-HS-ixp"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upf-j7-TH5">
@@ -114,6 +113,7 @@
                     <connections>
                         <outlet property="passwordTextField" destination="LyW-3j-3Cc" id="8pu-gM-geR"/>
                         <outlet property="warnLabel" destination="Hwv-Mb-fvT" id="S4U-Tg-3Hu"/>
+                        <segue destination="B77-xb-eq1" kind="show" identifier="tasksSegue" id="CJA-lC-5v8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -160,6 +160,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Tasks" id="du0-ti-sF4">
+                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="Vpz-BG-aYR">
+                            <connections>
+                                <action selector="signOutTapped:" destination="0cp-82-qgm" id="p3q-Z1-Uat"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZPF-Ac-HQn">
                             <connections>
                                 <action selector="addTapped:" destination="0cp-82-qgm" id="8Sw-Wr-ciN"/>
