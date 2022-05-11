@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		002367F0281EF7150020AC6D /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002367EF281EF7150020AC6D /* TasksViewController.swift */; };
 		007036DE2821069A0015ED32 /* GoogleService-Info-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 007036DD2821069A0015ED32 /* GoogleService-Info-3.plist */; };
+		007036E1282653810015ED32 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007036E0282653810015ED32 /* Task.swift */; };
+		007036E3282653920015ED32 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007036E2282653920015ED32 /* User.swift */; };
 		007A0774281B0908005F8C05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007A0773281B0908005F8C05 /* AppDelegate.swift */; };
 		007A0776281B0908005F8C05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007A0775281B0908005F8C05 /* SceneDelegate.swift */; };
 		007A0778281B0908005F8C05 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007A0777281B0908005F8C05 /* LoginViewController.swift */; };
@@ -20,6 +22,8 @@
 /* Begin PBXFileReference section */
 		002367EF281EF7150020AC6D /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		007036DD2821069A0015ED32 /* GoogleService-Info-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-3.plist"; sourceTree = "<group>"; };
+		007036E0282653810015ED32 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		007036E2282653920015ED32 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		007A0770281B0908005F8C05 /* ToDoFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		007A0773281B0908005F8C05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		007A0775281B0908005F8C05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +68,15 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
+		007036E4282653A50015ED32 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				007036E0282653810015ED32 /* Task.swift */,
+				007036E2282653920015ED32 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		007A0767281B0908005F8C05 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +96,7 @@
 		007A0772281B0908005F8C05 /* ToDoFirebase */ = {
 			isa = PBXGroup;
 			children = (
+				007036E4282653A50015ED32 /* Models */,
 				002367F2281EF75E0020AC6D /* View Controllers */,
 				002367F1281EF7480020AC6D /* Supporting Files */,
 			);
@@ -167,6 +181,8 @@
 			files = (
 				007A0778281B0908005F8C05 /* LoginViewController.swift in Sources */,
 				002367F0281EF7150020AC6D /* TasksViewController.swift in Sources */,
+				007036E3282653920015ED32 /* User.swift in Sources */,
+				007036E1282653810015ED32 /* Task.swift in Sources */,
 				007A0774281B0908005F8C05 /* AppDelegate.swift in Sources */,
 				007A0776281B0908005F8C05 /* SceneDelegate.swift in Sources */,
 			);
