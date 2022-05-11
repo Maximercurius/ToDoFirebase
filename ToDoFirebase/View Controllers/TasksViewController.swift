@@ -13,7 +13,7 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var user: User!
     var ref: FIRDatabaseReference!
     var tasks = Array<Task>()
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -28,30 +28,63 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewWillAppear(animated)
         ref.observe(.value, with:  { [weak self] (snapshot) in
             var _tasks = Array<Task>()
-        
+            
             for item in snapshot.children {
                 let task = Task(snapshot: item as! FIRDataSnapshot)
                 _tasks.append(task)
             }
             self?.tasks = _tasks
             self?.tableView.reloadData()
-    })
-        viewWillDisappear(_ animated: Bool)
-        super.viewWillDisappear(animated)
-        ref.removeAllObservers()
-        
+        })
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    ref.removeAllObservers()
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
         cell.backgroundColor = .clear
+        let task = tasks[indexPath.row]
         cell.textLabel?.textColor = .white
-        let taskTitle = task[indexPath.row].title
+        let taskTitle = task.title
+        let isCompleted = task.completed
         cell.textLabel?.text = taskTitle
+        toggleCompletion(cell, isCompleted: isCompleted)
+
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.count
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) -> Bool {
+        if editingStyle == .delete {
+            let task = task[indexPath.row]
+            task.ref?.removeValue()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        let task = task[indexPath.row]
+        let isCompleted = !task.completed
+        
+        toggleCompletion(cell, isCompleted: isCompleted)
+        task.ref?.updateChildValue(["completed" : isCompleted])
+    }
+    
+    func toggleCompletion(_ cell: UITableViewCell, isCompleted: Bool) {
+        cell.accessoryType = isCompleted ? .checkmark : .none
+    }
+    
+    
+    
     @IBAction func addTapped(_ sender: UIBarButtonItem) {
         
         let alertController = UIAlertController(title: "New Task", message: "Add New Task", preferredStyle: .alert)
@@ -74,12 +107,12 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBAction func signOutTapped(_ sender: UIBarButtonItem) {
         do {
-        try FIRAuth.auth().signout()
+            try FIRAuth.auth().signout()
         } catch {
             print (error.localizedDescription)
         }
         dismiss(animated: true, completion: nil)
     }
 }
-    
+
 }
