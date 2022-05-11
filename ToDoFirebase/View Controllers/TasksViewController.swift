@@ -22,19 +22,35 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         guard let currentUser = FIRAuth.auth()?.currentUser else { return }
         user = User(user: currentUser)
         ref = FIRDatabase.database().reference(withPath: "users").child(String(user.uid)).child("tasks")
-        
-        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        ref.observe(.value, with:  { [weak self] (snapshot) in
+            var _tasks = Array<Task>()
+        
+            for item in snapshot.children {
+                let task = Task(snapshot: item as! FIRDataSnapshot)
+                _tasks.append(task)
+            }
+            self?.tasks = _tasks
+            self?.tableView.reloadData()
+    })
+        viewWillDisappear(_ animated: Bool)
+        super.viewWillDisappear(animated)
+        ref.removeAllObservers()
+        
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.backgroundColor = .clear
-        cell.textLabel?.text = "This is cell number \(indexPath.row)"
         cell.textLabel?.textColor = .white
+        let taskTitle = task[indexPath.row].title
+        cell.textLabel?.text = taskTitle
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return tasks.count
     }
     @IBAction func addTapped(_ sender: UIBarButtonItem) {
         
